@@ -10,7 +10,7 @@ class GroceryListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_grocery_list_new)
+        setContentView(R.layout.activity_grocery_list)
 
         // Initialize data
         val myDataset = Datasource().loadListItems()
