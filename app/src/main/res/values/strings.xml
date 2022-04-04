@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Grocery List App</string>
+    <string name="list_item1">Bananas</string>
+    <string name="list_item2">Strawberries</string>
+    <string name="list_item3">Watermelon</string>
+    <string name="list_item4">Cantaloupe</string>
+    <string name="list_item5">Raspberries</string>
 </resources>
