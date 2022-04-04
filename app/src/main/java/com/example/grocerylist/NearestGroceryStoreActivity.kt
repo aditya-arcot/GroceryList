@@ -56,6 +56,7 @@ class NearestGroceryStoreActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+
     override fun onMapReady(googleMap: GoogleMap) {
         val sydney = LatLng(-33.852, 151.211)
         googleMap.addMarker(

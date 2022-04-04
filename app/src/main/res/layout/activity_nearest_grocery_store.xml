@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="fragment list of grocery stores in austin"
+        android:text="fragment list of groceries in austin"
         android:textSize="15sp"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintLeft_toLeftOf="parent"
