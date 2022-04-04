@@ -1,24 +1,31 @@
 package com.example.grocerylist
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.grocerylist.databinding.ActivityNearestGroceryStoreBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.example.grocerylist.databinding.ActivityNearestGroceryStoreBinding
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
+
 
 class NearestGroceryStoreActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityNearestGroceryStoreBinding
     private val TAG = NearestGroceryStoreActivity::class.java.simpleName
+    private val REQUEST_LOCATION_PERMISSION = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,29 +43,56 @@ class NearestGroceryStoreActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         setMapStyle(map)
-        val zoomLevel = 15f
 
-        //TODO change to user current location
-        val lat = 30.30284820175537
-        val long = -97.74187605916273
-        val homeLatLng = LatLng(lat, long)
+        //UT coords
+        val lat = 30.286229970772535
+        val long = -97.7393836892685
+        val latLng = LatLng(lat, long)
 
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
-        map.addMarker(MarkerOptions().position(homeLatLng).title("Current Location"))
+        val zoomLevel = 13f
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
+        //map.addMarker(MarkerOptions().position(latLng).title("Current Location"))
 
+        enableMyLocation()
         populateNearbyGroceryStores(map)
     }
 
     private fun populateNearbyGroceryStores(map:GoogleMap) {
         //TODO implement
-
         //add all markers in list
-        //map.addMarker(
-        //    MarkerOptions()
-        //        .position(latLng)
-        //        .title("Insert store name here")
-        //)
+    }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
+                enableMyLocation()
+            }
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun enableMyLocation() {
+        if (isPermissionGranted()) {
+            map.isMyLocationEnabled = true
+
+        }
+        else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION),
+                REQUEST_LOCATION_PERMISSION
+            )
+        }
+    }
+
+    private fun isPermissionGranted() : Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun setMapStyle(map: GoogleMap) {
