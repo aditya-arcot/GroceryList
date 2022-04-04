@@ -1,11 +1,13 @@
 package com.example.grocerylist
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grocerylist.adapter.ItemAdapter
 import com.example.grocerylist.data.Datasource
+import com.example.grocerylist.model.ListItem
 
 class GroceryListActivity : AppCompatActivity() {
 
@@ -13,15 +15,18 @@ class GroceryListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grocery_list)
 
-        // Initialize data
         val myDataset = Datasource().loadListItems()
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
 
-        //recyclerView.adapter = ItemAdapter(this, myDataset)
         recyclerView.adapter = ItemAdapter(this, myDataset) {
-                item -> Toast.makeText(this, item.listItemName, Toast.LENGTH_SHORT).show()
+                item -> openItemInfoActivity(item)
         }
     }
 
-
+    fun openItemInfoActivity(item: ListItem) {
+        val intent = Intent(this, ItemInfoActivity::class.java).apply {
+            putExtra("name", item.listItemName)
+        }
+        startActivity(intent)
+    }
 }
