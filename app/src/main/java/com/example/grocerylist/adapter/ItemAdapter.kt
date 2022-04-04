@@ -11,7 +11,10 @@ import com.example.grocerylist.model.ListItem
 
 class ItemAdapter (
     private val context: Context,
-    private val dataset: List<ListItem>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
+    private val dataset: List<ListItem>,
+    private val listener: (ListItem) -> Unit
+
+    ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
     class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val textView: TextView = view.findViewById(R.id.item_name)
@@ -25,6 +28,7 @@ class ItemAdapter (
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.listItemName)
+        holder.itemView.setOnClickListener { listener(item) }
     }
 
     override fun getItemCount() = dataset.size
