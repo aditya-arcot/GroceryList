@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.grocerylist">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,10 +20,10 @@
         <activity android:name=".GroceryListActivity"
             android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".NearestGroceryStoreActivity"
+        <activity android:name=".NearbyGroceryStoresActivity"
             android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".UserProfileActivity"
+        <activity android:name=".PantryActivity"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity

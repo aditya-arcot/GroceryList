@@ -27,32 +27,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_placeholder"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="View grocery list"
-        android:id="@+id/list_button"
+
+        android:id="@+id/grocery_list_button"
+        android:text="View Grocery List"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/list_button"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Nearest grocery store"
-        android:id="@+id/nearest_store_button"
+        app:layout_constraintTop_toBottomOf="@id/grocery_list_button"
+
+        android:text="View Pantry"
+        android:id="@+id/pantry_button"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/nearest_store_button"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="View profile"
-        android:id="@+id/profile_button"
+        app:layout_constraintTop_toBottomOf="@id/pantry_button"
+
+        android:text="Nearby Grocery Stores"
+        android:id="@+id/nearby_grocery_stores_button"
         />
+
 
 
 
