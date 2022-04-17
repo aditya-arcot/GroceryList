@@ -7,21 +7,21 @@
     tools:context=".MainActivity"
     android:background="@color/grey">
 
+
     <ImageView
+        android:id="@+id/main_placeholder"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
 
+        android:adjustViewBounds="true"
         android:padding="10dp"
+        android:src="@drawable/main_image"
 
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
-        android:id="@+id/main_placeholder"
-        android:src="@drawable/placeholder_image"
-        android:adjustViewBounds="true"
-        />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:layout_width="wrap_content"

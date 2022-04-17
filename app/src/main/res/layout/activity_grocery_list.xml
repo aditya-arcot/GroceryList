@@ -22,19 +22,18 @@
         />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/list_placeholder"
+        android:layout_width="364dp"
 
+        android:layout_height="299dp"
+
+        android:adjustViewBounds="true"
         android:padding="10dp"
+        android:src="@drawable/list"
 
-        app:layout_constraintTop_toBottomOf="@id/list_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
-        android:id="@+id/list_placeholder"
-        android:src="@drawable/placeholder_image"
-        android:adjustViewBounds="true"
-        />
+        app:layout_constraintTop_toBottomOf="@id/list_text" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
