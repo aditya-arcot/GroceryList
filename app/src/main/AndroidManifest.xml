@@ -15,9 +15,9 @@
             android:value="AIzaSyAUSLJ8i-alhKTyrLN1qIWKXil31MqfZrE" />
 
         <activity android:name=".ItemInfoActivity"
-            android:parentActivityName=".GroceryListActivity">
+            android:parentActivityName=".ListActivity">
         </activity>
-        <activity android:name=".GroceryListActivity"
+        <activity android:name=".ListActivity"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".NearbyGroceryStoresActivity"

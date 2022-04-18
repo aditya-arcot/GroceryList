@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openGroceryList() {
-        val intent = Intent(this, GroceryListActivity::class.java)
+        val intent = Intent(this, ListActivity::class.java)
         startActivity(intent)
     }
     private fun openPantry() {
