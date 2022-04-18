@@ -1,4 +1,4 @@
-package com.example.grocerylist
+package com.example.grocerylist.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.grocerylist.R
 
 class ListItemAdapter (
     private val context: Context,

@@ -1,4 +1,4 @@
-package com.example.grocerylist
+package com.example.grocerylist.list
 
 data class ListItem (
     val checked: Boolean,

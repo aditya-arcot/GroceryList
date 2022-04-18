@@ -14,10 +14,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAUSLJ8i-alhKTyrLN1qIWKXil31MqfZrE" />
 
-        <activity android:name=".ItemInfoActivity"
-            android:parentActivityName=".ListActivity">
-        </activity>
-        <activity android:name=".ListActivity"
+        <activity android:name=".list.ListActivity"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".NearbyGroceryStoresActivity"

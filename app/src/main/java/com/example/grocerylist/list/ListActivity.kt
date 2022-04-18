@@ -1,4 +1,4 @@
-package com.example.grocerylist
+package com.example.grocerylist.list
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.grocerylist.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
