@@ -20,7 +20,7 @@
         <activity android:name=".NearbyGroceryStoresActivity"
             android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".PantryActivity"
+        <activity android:name=".pantry.PantryActivity"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity

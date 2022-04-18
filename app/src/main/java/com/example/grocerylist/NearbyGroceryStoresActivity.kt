@@ -46,7 +46,7 @@ class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback {
 
         populateNearbyGroceryStores(map)
 
-        map.mapType = GoogleMap.MAP_TYPE_SATELLITE
+        map.mapType = GoogleMap.MAP_TYPE_NORMAL
     }
 
     private fun populateNearbyGroceryStores(map:GoogleMap) {
