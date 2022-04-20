@@ -8,12 +8,15 @@
         <entry key="app/src/main/res/layout/activity_grocery_list.xml" value="0.2641876220703125" />
         <entry key="app/src/main/res/layout/activity_grocery_list_new.xml" value="0.2269021739130435" />
         <entry key="app/src/main/res/layout/activity_item_info.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_list.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2687530517578125" />
         <entry key="app/src/main/res/layout/activity_nearby_grocery_stores.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/activity_nearest_grocery_store.xml" value="0.3069486919202303" />
-        <entry key="app/src/main/res/layout/activity_pantry.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/activity_pantry.xml" value="0.21433715820312502" />
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.246875" />
+        <entry key="app/src/main/res/layout/list_row.xml" value="1.6546866165964227" />
+        <entry key="app/src/main/res/layout/pantry_item.xml" value="0.11322188449848024" />
       </map>
     </option>
   </component>
