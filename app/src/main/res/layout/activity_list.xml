@@ -70,7 +70,7 @@
         <EditText
             android:id="@+id/list_input"
             android:hint="Enter item name"
-            android:textColorHint="@color/green"
+            android:textColorHint="@color/light_green"
             android:textColor="@color/white"
 
             android:layout_weight="1"
