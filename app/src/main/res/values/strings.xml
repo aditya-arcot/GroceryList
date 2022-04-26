@@ -3,5 +3,8 @@
 
     <string name="normal_map">Normal Map</string>
     <string name="satellite_map">Satellite Map</string>
+    <string name="grocery_list_image_description">Grocery list image</string>
+    <string name="grocery_list_title">Grocery List</string>
+    <string name="enter_list_item_name_hint">Enter item name</string>
 
 </resources>

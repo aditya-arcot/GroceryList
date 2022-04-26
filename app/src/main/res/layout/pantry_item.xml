@@ -2,28 +2,49 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:orientation="horizontal"
-
     android:background="@color/grey"
 
+    android:orientation="vertical"
+
     android:layout_width="fill_parent"
-    android:layout_height="20dp"
-    >
+    android:layout_height="50sp">
 
-    <CheckBox
-        android:id="@+id/pantry_item_checkbox"
+    <LinearLayout
+        android:orientation="horizontal"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+        android:background="@color/grey"
+
+        android:layout_width="fill_parent"
+        android:layout_height="25sp"
+        >
+
+        <CheckBox
+            android:id="@+id/pantry_item_checkbox"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/pantry_item_name"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/pantry_item_name"
+        android:id="@+id/pantry_item_info"
         android:textColor="@color/white"
+        android:textSize="20sp"
 
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-    </TextView>
 
+        android:layout_marginStart="49dp"
+
+        />
 </LinearLayout>

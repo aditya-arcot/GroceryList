@@ -12,6 +12,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grocerylist.R
+import com.example.grocerylist.SharedPreferencesFunctions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
@@ -21,15 +22,18 @@ lateinit var sharedPrefs: SharedPreferences
 
 class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("custom", "Opened list activity")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
 
-        val lst = loadList()
+        val lst = SharedPreferencesFunctions.loadGroceryList(sharedPrefs)
         data = if (lst != null) lst else ArrayList()
 
-        val adapter = ListItemAdapter(this){ checkBoxClick() }
+        //val adapter = ListItemAdapter(this){ checkBoxClick() }
+        val adapter = ListItemAdapter(this)
 
         val recyclerView = findViewById<RecyclerView>(R.id.list_recycler_view)
         recyclerView.adapter = adapter
@@ -38,31 +42,6 @@ class ListActivity : AppCompatActivity() {
         val addField = findViewById<EditText>(R.id.list_input)
         addButton.setOnClickListener{ buttonClicked(addField, adapter)}
 
-    }
-
-    private fun checkBoxClick(){
-        saveList(data)
-    }
-
-    private fun saveList(lst: ArrayList<ListItem>){
-        val editor = sharedPrefs.edit()
-        val gson = Gson()
-        val json = gson.toJson(lst)
-        editor.putString("grocery_list", json)
-        editor.apply()
-
-        Log.i("user", "saved: $lst")
-    }
-
-    private fun loadList(): ArrayList<ListItem>? {
-        val gson = Gson()
-        val json = sharedPrefs.getString("grocery_list", "")
-        val type: Type = object : TypeToken<ArrayList<ListItem?>?>() {}.type
-        val lst: ArrayList<ListItem>? = gson.fromJson(json, type)
-
-        Log.i("user", "loaded: $lst")
-
-        return lst
     }
 
     private fun buttonClicked(textField: EditText, adapter: ListItemAdapter){
@@ -74,7 +53,7 @@ class ListActivity : AppCompatActivity() {
             data.add(ListItem(false, text))
             adapter.notifyItemChanged(data.size - 1)
 
-            saveList(data)
+            SharedPreferencesFunctions.saveGroceryList(data, sharedPrefs)
 
         }
     }

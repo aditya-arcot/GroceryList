@@ -7,7 +7,7 @@
     android:background="@color/grey"
 
     android:layout_width="fill_parent"
-    android:layout_height="20dp"
+    android:layout_height="35sp"
     >
 
     <CheckBox
@@ -15,14 +15,19 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
         />
     
     <TextView
         android:id="@+id/list_item_name"
         android:textColor="@color/white"
+        android:textSize="25sp"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
         >
     </TextView>
 

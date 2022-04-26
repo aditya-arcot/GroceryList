@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:padding="10dp"
     android:background="@color/grey"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pantry.PantryActivity">
+    >
 
     <TextView
         android:id="@+id/pantry_text"
         android:text="Pantry"
         android:textSize="30sp"
         android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -24,61 +26,96 @@
 
     <ImageView
         android:id="@+id/pantry_image"
-        android:layout_width="wrap_content"
-
-        android:layout_height="200dp"
-        android:layout_below="@+id/pantry_text"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:padding="10dp"
         android:src="@drawable/pantry_image"
+        android:contentDescription="Pantry activity image"
+
+        android:padding="10dp"
+        android:adjustViewBounds="true"
+
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pantry_text" />
+        app:layout_constraintTop_toBottomOf="@id/pantry_text"
+        />
 
-    <RelativeLayout
-        android:id="@+id/header"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pantry_recycler_view"
+
+        app:layoutManager="LinearLayoutManager"
+
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp"
-        android:background="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintTop_toBottomOf="@id/pantry_image"
+        app:layout_constraintBottom_toTopOf="@id/pantry_linear_layout"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        />
+
+    <LinearLayout
+        android:id="@+id/pantry_linear_layout"
+
+        android:background="@color/grey"
+
+        android:orientation="vertical"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        >
 
         <EditText
-            android:id="@+id/input"
-            android:layout_width="wrap_content"
+            android:id="@+id/pantry_input_name"
+            android:hint="Enter item name"
+            android:textColorHint="@color/green"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:autofillHints="" />
+
+        <LinearLayout
+            android:background="@color/grey"
+
+            android:orientation="horizontal"
+
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:ems="10"
-            android:hint="Enter item name" />
+            >
 
-        <ImageView
-            android:id="@+id/add"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="7sp"
-            android:layout_toRightOf="@+id/input"
-            android:src="@drawable/add_item" />
+            <EditText
+                android:id="@+id/pantry_input_info"
+                android:hint="Enter item info"
+                android:textColorHint="@color/green"
+                android:textColor="@color/white"
+                android:textSize="20sp"
 
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                />
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/pantry_add_button"
+                android:text="Add item"
+                android:textSize="17sp"
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/header"
-        android:layout_below="@+id/pantry_image"
-        app:layout_constraintBottom_toTopOf="@+id/header"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                />
 
+        </LinearLayout>
 
-
+    </LinearLayout>
 
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
