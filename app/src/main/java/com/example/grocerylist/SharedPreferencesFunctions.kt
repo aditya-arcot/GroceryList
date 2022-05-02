@@ -1,7 +1,6 @@
 package com.example.grocerylist
 
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import android.util.Log
 import com.example.grocerylist.list.ListItem
 import com.example.grocerylist.pantry.PantryItem

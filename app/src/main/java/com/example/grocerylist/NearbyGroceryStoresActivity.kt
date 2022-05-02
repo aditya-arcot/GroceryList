@@ -23,7 +23,7 @@ class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback,
     GoogleMap.OnInfoWindowClickListener {
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityNearbyGroceryStoresBinding
-    private val TAG = NearbyGroceryStoresActivity::class.java.simpleName
+    private val tag = NearbyGroceryStoresActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,10 +100,10 @@ class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback,
             )
 
             if (!success) {
-                Log.e(TAG, "Style parsing failed.")
+                Log.e(tag, "Style parsing failed.")
             }
         } catch (e: Resources.NotFoundException) {
-            Log.e(TAG, "Can't find style. Error: ", e)
+            Log.e(tag, "Can't find style. Error: ", e)
         }
     }
 
