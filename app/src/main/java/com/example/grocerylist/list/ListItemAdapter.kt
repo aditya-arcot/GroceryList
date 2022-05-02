@@ -61,20 +61,23 @@ class ListItemAdapter(
             strikethrough(holder.textView, holder.checkBox.isChecked)
 
             val options = ArrayList<String>()
-            options.add("Remove")
+            options.add("Strikethrough")
             options.add("Move to pantry")
+            options.add("Delete")
 
 
             val builder: AlertDialog.Builder = AlertDialog.Builder(context)
             builder.setTitle(item.listItemName)
             builder.setItems(options.toTypedArray()) { _, position ->
-                if (position != 2) {
+                if (position == 2) {
                     removeItem(item)
-
-                    if (position == 1) {
-                        addToPantry(item)
-                    }
                 }
+
+                if (position == 1) {
+                    addToPantry(item)
+                    removeItem(item)
+                }
+
 
             }
             builder.show()

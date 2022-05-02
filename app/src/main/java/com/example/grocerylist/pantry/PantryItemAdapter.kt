@@ -53,14 +53,15 @@ class PantryItemAdapter (
             strikethrough(holder.nameTextView,holder.infoTextView, holder.checkBox.isChecked)
 
             val options = ArrayList<String>()
-            options.add("Remove")
+            options.add("Strikethrough")
+            options.add("Delete")
 
 
 
             val builder: AlertDialog.Builder = AlertDialog.Builder(context)
             builder.setTitle(item.pantryItemName)
             builder.setItems(options.toTypedArray()) { _, position ->
-                if (position != 2) {
+                if (position == 1) {
                     removeItem(item)
 
 
@@ -75,7 +76,7 @@ class PantryItemAdapter (
     private fun removeItem(item: PantryItem){
         data.remove(item)
 
-        SharedPreferencesFunctions.savePantryList(data, sharedPrefs)
+        SharedPreferencesFunctions.savePantry(data, sharedPrefs)
 
 
         notifyDataSetChanged()
