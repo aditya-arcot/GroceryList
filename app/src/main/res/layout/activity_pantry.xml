@@ -105,12 +105,12 @@
 
             <Button
                 android:id="@+id/pantry_add_button"
-                android:text="Add item"
-                android:textSize="17sp"
-
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="fill_parent"
-                />
+                android:drawableRight="@drawable/ic_baseline_add_box_24"
+
+                android:paddingStart="14dp"
+                android:paddingEnd="7dp" />
 
         </LinearLayout>
 
