@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/nearest_store_text"
-        android:text="Nearby Grocery Stores"
+        android:text="@string/nearby_grocery_stores"
         android:textSize="30sp"
         android:textColor="@color/white"
 

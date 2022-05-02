@@ -3,8 +3,19 @@
 
     <string name="normal_map">Normal Map</string>
     <string name="satellite_map">Satellite Map</string>
+
+    <string name="grocery_store_image_description">Grocery store image</string>
+    <string name="view_grocery_list">View Grocery List</string>
+    <string name="view_pantry">View Pantry</string>
+    <string name="nearby_grocery_stores">Nearby Grocery Stores</string>
+
     <string name="grocery_list_image_description">Grocery list image</string>
     <string name="grocery_list_title">Grocery List</string>
     <string name="enter_list_item_name_hint">Enter item name</string>
+
+    <string name="pantry_image_description">Pantry image</string>
+    <string name="pantry_title">Pantry</string>
+    <string name="enter_pantry_item_name_hint">Enter item name</string>
+    <string name="enter_pantry_item_info_hint">Enter item info</string>
 
 </resources>

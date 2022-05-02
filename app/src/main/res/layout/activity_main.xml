@@ -24,11 +24,12 @@
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/grocery_store_image_description" />
 
     <Button
         android:id="@+id/grocery_list_button"
-        android:text="View Grocery List"
+        android:text="@string/view_grocery_list"
 
         android:layout_marginTop="20dp"
         
@@ -43,7 +44,7 @@
 
     <Button
         android:id="@+id/pantry_button"
-        android:text="View Pantry"
+        android:text="@string/view_pantry"
 
         android:layout_marginTop="20dp"
 
@@ -57,7 +58,7 @@
 
     <Button
         android:id="@+id/nearby_grocery_stores_button"
-        android:text="Nearby Grocery Stores"
+        android:text="@string/nearby_grocery_stores"
 
         android:layout_marginTop="20dp"
 

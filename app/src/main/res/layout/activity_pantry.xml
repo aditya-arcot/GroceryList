@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/pantry_image"
         android:src="@drawable/pantry_image"
-        android:contentDescription="Pantry activity image"
+        android:contentDescription="@string/pantry_image_description"
 
         android:adjustViewBounds="true"
 
@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/pantry_text"
-        android:text="Pantry"
+        android:text="@string/pantry_title"
         android:textSize="30sp"
         android:textColor="@color/white"
 
@@ -74,7 +74,7 @@
 
         <EditText
             android:id="@+id/pantry_input_name"
-            android:hint="Enter item name"
+            android:hint="@string/enter_pantry_item_name_hint"
             android:textColorHint="@color/green"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -96,7 +96,7 @@
 
             <EditText
                 android:id="@+id/pantry_input_info"
-                android:hint="Enter item info"
+                android:hint="@string/enter_pantry_item_info_hint"
                 android:textColorHint="@color/green"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -104,6 +104,9 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+
+                tools:ignore="TextFields"
+                android:importantForAutofill="no"
                 />
 
             <Button
