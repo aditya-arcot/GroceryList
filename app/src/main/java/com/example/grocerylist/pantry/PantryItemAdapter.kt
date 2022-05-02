@@ -1,6 +1,8 @@
 package com.example.grocerylist.pantry
 
+import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,8 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grocerylist.R
+import com.example.grocerylist.SharedPreferencesFunctions
+import com.example.grocerylist.list.ListItem
 
 class PantryItemAdapter (
     private val context: Context,
@@ -26,18 +30,57 @@ class PantryItemAdapter (
         return ItemViewHolder(adapterLayout)
     }
 
+    private fun strikethrough(nameTextView: TextView, infoTextView: TextView, bool:Boolean){
+        if (bool){
+            nameTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            infoTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+        }
+        else{
+            nameTextView.paintFlags = nameTextView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            infoTextView.paintFlags = infoTextView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
+    }
+
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = data[position]
         holder.nameTextView.text = item.pantryItemName
         holder.infoTextView.text = item.pantryItemInfo
         holder.checkBox.isChecked = item.checked
+        strikethrough(holder.nameTextView, holder.infoTextView, holder.checkBox.isChecked)
 
         holder.checkBox.setOnClickListener {
-            data.remove(item)
-            notifyDataSetChanged()
-            checkBoxClick("")
+            item.checked = !item.checked
+            strikethrough(holder.nameTextView,holder.infoTextView, holder.checkBox.isChecked)
+
+            val options = ArrayList<String>()
+            options.add("Remove")
+
+
+
+            val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+            builder.setTitle(item.pantryItemName)
+            builder.setItems(options.toTypedArray()) { _, position ->
+                if (position != 2) {
+                    removeItem(item)
+
+
+                }
+
+            }
+            builder.show()
+
+
         }
     }
+    private fun removeItem(item: PantryItem){
+        data.remove(item)
+
+        SharedPreferencesFunctions.savePantryList(data, sharedPrefs)
+
+
+        notifyDataSetChanged()
+    }
+
 
     override fun getItemCount() = data.size
 

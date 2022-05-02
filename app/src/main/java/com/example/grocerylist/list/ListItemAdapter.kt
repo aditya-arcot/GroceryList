@@ -63,7 +63,7 @@ class ListItemAdapter(
             val options = ArrayList<String>()
             options.add("Remove")
             options.add("Move to pantry")
-            options.add("Strikethrough only")
+
 
             val builder: AlertDialog.Builder = AlertDialog.Builder(context)
             builder.setTitle(item.listItemName)
