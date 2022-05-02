@@ -30,7 +30,8 @@
         android:id="@+id/grocery_list_button"
         android:text="View Grocery List"
 
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
+        
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
         android:id="@+id/pantry_button"
         android:text="View Pantry"
 
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +59,7 @@
         android:id="@+id/nearby_grocery_stores_button"
         android:text="Nearby Grocery Stores"
 
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
