@@ -5,15 +5,16 @@
       <map>
         <entry key="..\:/Users/leann/Desktop/Spring 2022/CS 329/Final Project/GroceryList/app/src/main/res/layout/activity_main.xml" value="0.25625" />
         <entry key="..\:/Users/leann/Desktop/Spring 2022/CS 329/Final Project/GroceryList/app/src/main/res/layout/activity_user_profile.xml" value="0.12462006079027356" />
+        <entry key="app/src/main/res/drawable/add.xml" value="0.185" />
         <entry key="app/src/main/res/drawable/grocery_cart_background.xml" value="0.1865" />
         <entry key="app/src/main/res/layout/activity_grocery_list.xml" value="0.2641876220703125" />
         <entry key="app/src/main/res/layout/activity_grocery_list_new.xml" value="0.2269021739130435" />
         <entry key="app/src/main/res/layout/activity_item_info.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/activity_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_list.xml" value="0.5309446254071661" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2687530517578125" />
         <entry key="app/src/main/res/layout/activity_nearby_grocery_stores.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/activity_nearest_grocery_store.xml" value="0.3069486919202303" />
-        <entry key="app/src/main/res/layout/activity_pantry.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_pantry.xml" value="0.4206451612903226" />
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.246875" />
         <entry key="app/src/main/res/layout/pantry_item.xml" value="0.16302083333333334" />

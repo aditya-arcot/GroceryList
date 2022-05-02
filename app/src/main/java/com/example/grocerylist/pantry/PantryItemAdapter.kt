@@ -45,7 +45,7 @@ class PantryItemAdapter (
         Toast.makeText(context, "Edit item", Toast.LENGTH_SHORT).show()
 
         val nameEditText = (context as PantryActivity).findViewById<EditText>(R.id.pantry_input_name)
-        val infoEditText = (context as PantryActivity).findViewById<EditText>(R.id.pantry_input_info)
+        val infoEditText = context.findViewById<EditText>(R.id.pantry_input_info)
 
         nameEditText.setText(item.pantryItemName)
         infoEditText.setText(item.pantryItemInfo)

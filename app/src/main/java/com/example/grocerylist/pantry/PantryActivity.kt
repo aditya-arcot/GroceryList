@@ -44,19 +44,18 @@ class PantryActivity : AppCompatActivity() {
 
     private fun buttonClicked(nameField: EditText, infoField: EditText, adapter: PantryItemAdapter){
         val name = nameField.text.toString().replace("\n", " ")
-        val info = infoField.text.toString().replace("\n", " ")
+        var info = infoField.text.toString().replace("\n", " ")
 
         if (name != ""){ //info can be blank
             nameField.setText("")
             infoField.setText("")
 
+            if (info == ""){ info = "-" }
+
             data.add(PantryItem(false, name, info))
             adapter.notifyItemChanged(data.size - 1)
 
             SharedPreferencesFunctions.savePantry(data, sharedPrefs)
-        }
-        else {
-            //Toast?
         }
     }
 

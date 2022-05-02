@@ -91,9 +91,7 @@
 
         <Button
             android:id="@+id/list_add_button"
-            android:drawableLeft="@drawable/ic_baseline_add_shopping_cart_24"
-            android:paddingStart="14dp"
-            android:paddingEnd="0dp"
+            android:drawableLeft="@drawable/add_to_list"
 
             android:layout_width="50dp"
             android:layout_height="fill_parent"

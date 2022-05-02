@@ -89,7 +89,7 @@ class ListItemAdapter(
     }
 
     private fun addToPantry(item: ListItem){
-        val pantryItem = PantryItem(false, item.listItemName, "")
+        val pantryItem = PantryItem(false, item.listItemName, "-")
         var pantry = SharedPreferencesFunctions.loadPantry(sharedPrefs)
         if (pantry != null) {
             pantry.add(pantryItem)
