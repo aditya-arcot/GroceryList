@@ -51,9 +51,5 @@ class SharedPreferencesFunctions {
             return lst
         }
 
-        fun savePantryList(data: ArrayList<PantryItem>, sharedPrefs: SharedPreferences) {
-
-        }
-
     }
 }

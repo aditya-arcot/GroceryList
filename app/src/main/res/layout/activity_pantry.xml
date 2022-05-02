@@ -2,13 +2,28 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:padding="10dp"
     android:background="@color/grey"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/pantry_image"
+        android:src="@drawable/pantry_image"
+        android:contentDescription="Pantry activity image"
+
+        android:adjustViewBounds="true"
+
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/pantry_text"
@@ -16,29 +31,16 @@
         android:textSize="30sp"
         android:textColor="@color/white"
 
+        android:padding="10dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pantry_image"
         />
 
-    <ImageView
-        android:id="@+id/pantry_image"
-        android:src="@drawable/pantry_image"
-        android:contentDescription="Pantry activity image"
-
-        android:padding="10dp"
-        android:adjustViewBounds="true"
-
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pantry_text"
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pantry_recycler_view"
@@ -48,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
-        app:layout_constraintTop_toBottomOf="@id/pantry_image"
+        app:layout_constraintTop_toBottomOf="@id/pantry_text"
         app:layout_constraintBottom_toTopOf="@id/pantry_linear_layout"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -80,7 +82,8 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:autofillHints="" />
+            tools:ignore="TextFields"
+            android:importantForAutofill="no" />
 
         <LinearLayout
             android:background="@color/grey"
@@ -107,10 +110,11 @@
                 android:id="@+id/pantry_add_button"
                 android:layout_width="50dp"
                 android:layout_height="fill_parent"
-                android:drawableRight="@drawable/ic_baseline_add_box_24"
+                android:drawableLeft="@drawable/ic_baseline_add_box_24"
 
                 android:paddingStart="14dp"
-                android:paddingEnd="7dp" />
+                android:paddingEnd="0dp"
+                />
 
         </LinearLayout>
 

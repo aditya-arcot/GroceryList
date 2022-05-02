@@ -1,6 +1,8 @@
 package com.example.grocerylist
 
+import android.content.Intent
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -13,10 +15,12 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 
-class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback {
+class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback,
+    GoogleMap.OnInfoWindowClickListener {
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityNearbyGroceryStoresBinding
     private val TAG = NearbyGroceryStoresActivity::class.java.simpleName
@@ -47,6 +51,8 @@ class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback {
         populateNearbyGroceryStores(map)
 
         map.mapType = GoogleMap.MAP_TYPE_NORMAL
+
+        googleMap.setOnInfoWindowClickListener(this)
     }
 
     private fun populateNearbyGroceryStores(map:GoogleMap) {
@@ -64,6 +70,23 @@ class NearbyGroceryStoresActivity : AppCompatActivity(), OnMapReadyCallback {
         map.addMarker(MarkerOptions().position(LatLng(30.267945, -97.752715)).title("Trader Joe’s"))
         map.addMarker(MarkerOptions().position(LatLng(30.267846, -97.749427)).title("Royal Blue"))
         map.addMarker(MarkerOptions().position(LatLng(30.267846, -97.749427)).title("Mini Mart"))
+    }
+
+    override fun onInfoWindowClick(marker: Marker) {
+        val pos = marker.position
+
+        val uri = Uri.parse("geo:0,0?q=" + pos.latitude.toString() + "," +
+                pos.longitude.toString() + "(" + marker.title + ")")
+        showMap(uri)
+    }
+
+    private fun showMap(geoLocation: Uri) {
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            data = geoLocation
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
 

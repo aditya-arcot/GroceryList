@@ -32,7 +32,6 @@ class ListActivity : AppCompatActivity() {
         val lst = SharedPreferencesFunctions.loadGroceryList(sharedPrefs)
         data = if (lst != null) lst else ArrayList()
 
-        //val adapter = ListItemAdapter(this){ checkBoxClick() }
         val adapter = ListItemAdapter(this)
 
         val recyclerView = findViewById<RecyclerView>(R.id.list_recycler_view)
@@ -66,10 +65,4 @@ class ListActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
-    /*private fun openItemInfoActivity(item: ListItem) {
-        val intent = Intent(this, ItemInfoActivity::class.java).apply {
-            putExtra("name", resources.getString(item.listItemName))
-        }
-        startActivity(intent)
-    }*/
 }

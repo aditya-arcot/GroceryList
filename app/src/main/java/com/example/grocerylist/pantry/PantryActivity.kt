@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -18,6 +19,8 @@ lateinit var sharedPrefs: SharedPreferences
 
 class PantryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("custom", "Opened pantry activity")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantry)
 
@@ -26,7 +29,8 @@ class PantryActivity : AppCompatActivity() {
         val lst = SharedPreferencesFunctions.loadPantry(sharedPrefs)
         data = if (lst != null) lst else ArrayList()
 
-        val adapter = PantryItemAdapter(this){ checkBoxClick() }
+        //val adapter = PantryItemAdapter(this){ checkBoxClick() }
+        val adapter = PantryItemAdapter(this)
 
         val recyclerView = findViewById<RecyclerView>(R.id.pantry_recycler_view)
         recyclerView.adapter = adapter
@@ -38,15 +42,11 @@ class PantryActivity : AppCompatActivity() {
 
     }
 
-    private fun checkBoxClick(){
-        SharedPreferencesFunctions.savePantry(data, sharedPrefs)
-    }
-
     private fun buttonClicked(nameField: EditText, infoField: EditText, adapter: PantryItemAdapter){
         val name = nameField.text.toString().replace("\n", " ")
         val info = infoField.text.toString().replace("\n", " ")
 
-        if (name != "" && info != ""){
+        if (name != ""){ //info can be blank
             nameField.setText("")
             infoField.setText("")
 
@@ -54,6 +54,9 @@ class PantryActivity : AppCompatActivity() {
             adapter.notifyItemChanged(data.size - 1)
 
             SharedPreferencesFunctions.savePantry(data, sharedPrefs)
+        }
+        else {
+            //Toast?
         }
     }
 

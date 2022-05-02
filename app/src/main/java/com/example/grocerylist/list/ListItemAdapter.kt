@@ -69,16 +69,13 @@ class ListItemAdapter(
             val builder: AlertDialog.Builder = AlertDialog.Builder(context)
             builder.setTitle(item.listItemName)
             builder.setItems(options.toTypedArray()) { _, position ->
-                if (position == 2) {
+                if (position != 0){
                     removeItem(item)
+
+                    if (position == 1){
+                        addToPantry(item)
+                    }
                 }
-
-                if (position == 1) {
-                    addToPantry(item)
-                    removeItem(item)
-                }
-
-
             }
             builder.show()
         }
@@ -92,14 +89,14 @@ class ListItemAdapter(
     }
 
     private fun addToPantry(item: ListItem){
-        val pantry_item = PantryItem(false, item.listItemName, "")
+        val pantryItem = PantryItem(false, item.listItemName, "")
         var pantry = SharedPreferencesFunctions.loadPantry(sharedPrefs)
         if (pantry != null) {
-            pantry.add(pantry_item)
+            pantry.add(pantryItem)
         }
         else {
             pantry = ArrayList()
-            pantry.add(pantry_item)
+            pantry.add(pantryItem)
         }
         SharedPreferencesFunctions.savePantry(pantry, sharedPrefs)
     }
